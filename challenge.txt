@@ -1,0 +1,32 @@
+
+==========================================================================
+                           Monkey and Banana
+---------------------------------------------------------------------------
+ INITIAL STATE
+ Hungry monkey
+ Chair on floor
+ Desk on floor
+ Banana on ceiling
+ monkey on floor
+ monkey free hands 
+ monkey lejos de los objetos
+
+
+ ejemplo de una accion, el mono se desplaza y brincase es una accion
+
+ estar cerca del escritorio es una accion 
+ subirce al escritorio es otra
+ intentar tomar las bananas es otra
+
+ nota las acciones permisivas son acciones como las anteriores que son posibles hacerlas
+ pero no necesariamente te llevan a la solucion, y ha acciones requeridas en un orden en 
+ especifico que son necesaria para llegar a la solucion
+
+ Monkey condiciones iniciales:,
+ esta en el piso
+ tiene las manos libres
+ esta lejos de la silla ( se dezplaza)
+ esta lejos de la mesa  ( se dezplaza)
+ (OJO aca el maestro integro otra condicion que es la fuera, que dice que el mono tiene la fuerza para levantar la silla, no dice que la mesa no pero se sobrentiendo al hacer la primera afirmacion)
+
+
