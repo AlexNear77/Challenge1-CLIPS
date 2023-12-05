@@ -1,10 +1,14 @@
+(defglobal ?*plan_de_accion* = (create$))
+
 (defrule r1 
     (monkey farFromChair) 
     ?fact <- (monkey farFromChair)
     => 
     (printout  t "monkey goes to the chair" crlf) 
     (assert (monkey nearChair)) 
-    (retract ?fact) )
+    (retract ?fact) 
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey goes to the chair"))
+)
 
 (defrule r2
     (monkey nearChair) 
@@ -17,7 +21,9 @@
     (assert (monkey handsBusy)) 
     (assert (monkey grabbedChair))
     (retract ?fact1)
-    (retract ?fact2) )
+    (retract ?fact2)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey takes the chair"))
+)
 
 (defrule r3
     (monkey nearChair) 
@@ -27,7 +33,9 @@
     => 
     (printout t "monkey goes to the desk" crlf) 
     (assert (monkey nearDesk))
-    (retract ?fact1) )
+    (retract ?fact1)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey goes to the desk"))
+)
 
 (defrule r4
     (monkey nearDesk) 
@@ -40,7 +48,9 @@
     (assert (chair onDesk))
     (assert (monkey handsFree))
     (retract ?fact1)
-    (retract ?fact2) )
+    (retract ?fact2)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey puts the chair on desk"))
+)
 
 (defrule r5
     (monkey nearDesk) 
@@ -49,8 +59,9 @@
     => 
     (printout t "monkey climbs on the desk" crlf)
     (assert (monkey onDesk))
-    (retract ?fact1) )
-
+    (retract ?fact1)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey climbs on the desk"))
+)
 
 (defrule r6
     (chair onDesk) 
@@ -61,7 +72,9 @@
     (printout t "monkey climbs on the chair" crlf)
     (assert (monkey onChair))
     (assert (monkey nearBanana))
-    (retract ?fact1) )
+    (retract ?fact1)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey climbs on the chair"))
+)
 
 (defrule r7
     (monkey nearBanana) 
@@ -73,7 +86,9 @@
     (assert (monkey grabbedBanana))
     (assert (monkey handsBusy))
     (retract ?fact1)
-    (retract ?fact2) )
+    (retract ?fact2)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey takes the banana"))
+)
 
 (defrule r8
     (monkey grabbedBanana) 
@@ -87,4 +102,6 @@
     (assert (monkey happy))
     (retract ?fact1)
     (retract ?fact2)
-    (retract ?fact3) )
+    (retract ?fact3)
+    (bind ?*plan_de_accion* (create$ ?*plan_de_accion* "Monkey eats the banana"))
+)

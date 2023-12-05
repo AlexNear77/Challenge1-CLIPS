@@ -10,21 +10,14 @@
 (assert (monkey onFloor))
 (assert (monkey hungry))
 (assert (monkey handsFree))
-(assert (monkey hasStrength)) ; la utilice pero solo una vez
+(assert (monkey hasStrength))
 (assert (monkey farFromChair))
 (assert (monkey farFromDesk))
 (assert (chair onFloor))
 (assert (desk onFloor)) 
-(assert (desk belowBanana)) ; no se usa pero no esta demas
+(assert (desk belowBanana)) 
 
 ;; Rules
-
-;; (defrule r1 (monkey farFromChair) => (printout  t "monkey goes to the chair" crlf) (assert (monkey nearChair)) (retract monkey farFromChair) )
-;; [ARGACCES2] Function 'retract' expected argument #1 to be of type fact-address, fact-index, or the symbol *.
-;; [ARGACCES2] Function 'retract' expected argument #2 to be of type fact-address, fact-index, or the symbol *.
-;; [PRCCODE4] Execution halted during the actions of defrule 'r1'.
-;; (defrule r1 (monkey farFromChair) => (printout  t "monkey goes to the chair" crlf) (assert (monkey nearChair)) (retract 6) )
-
 (defrule r1 
     (monkey farFromChair) 
     ?fact <- (monkey farFromChair)
@@ -116,3 +109,6 @@
     (retract ?fact1)
     (retract ?fact2)
     (retract ?fact3) )
+
+
+(printout t "Plan de accion:" ?*plan_de_accion* crlf)
